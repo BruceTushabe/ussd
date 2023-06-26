@@ -1,3 +1,4 @@
+
 <?php
 
 error_reporting(E_ALL); // display all errors and warnings for debugging purposes
@@ -113,25 +114,7 @@ function ussd_stop($ussd_text) {
 
 // This is the home menu function 
 function display_menu() {
-    if (empty($_POST["text"])) {
-        ussd_proceed(WELCOME_MSG . "Please enter your full name:");
-    } else {
-        $ussd_text_exploded = explode('*', $_POST["text"]);
-        if (count($ussd_text_exploded) == 1) {
-            // First input, expecting full name
-            $full_name = $ussd_text_exploded[0];
-            // Save the full name to the database or perform any necessary operations
-            // ...
-            // Display the next menu
-            $response = "CON Are you a Cassava Seller or Buyer?\n";
-            $response .= "1. Cassava Seller \n";
-            $response .= "2. Cassava Buyer \n";
-            ussd_proceed($response);
-        } else {
-            // Invalid input format after the first prompt
-            ussd_stop(ERROR_MSG);
-        }
-    }
+    ussd_proceed(WELCOME_MSG . "Please enter your full name:");
 }
 
 // Function that handles About menu 
@@ -173,3 +156,4 @@ function register($ussd_text_exploded, $phone, $dbh) {
         ussd_proceed($response);
     }
 }
+?>
