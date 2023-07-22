@@ -23,7 +23,6 @@ switch($RequestType){
 
 		echo "$TransId=".$TransId."&RequestType= 2&MSISDN=". $MSISDN."&AppId=".$AppId."&USSDString=".$message."&TypeofMessage=0";
 
-
 }
 
 
