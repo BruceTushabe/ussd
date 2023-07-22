@@ -12,6 +12,16 @@ $SHORTCODE = $_GET['SHORTCODE'];
 $AppID = $GET['AppID'];
 $USSDString = $_get['USSDString'];
 
+$menus = array();
+$sql = "SELECT * FROM menu where status = 1";
+$qer = $db->query($sql);
+while($tab = $qer->fetch()){
+  $menus[] = $tab['participant_id']. ".$tab['name']." \n;
+}
+
+$message = "Welcome to the USSD Demo App\n";
+$message .= implode(', ', $menus);
+
 switch($RequestType){
 	case 1:
 		$message = "Welcome to the USSD Demo App\n";
