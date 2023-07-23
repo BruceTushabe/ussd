@@ -28,7 +28,7 @@ switch($RequestType){
 		$sql = "SELECT * FROM menu where status = 1";
 		$qer = mysqli_query($sql);
 		while($tab = mysqli_fetch_array($qer)){
-			$message. = $tab['participant_id']. ".$tab['name']." \n;
+			$message.= $tab['participant_id']. ".$tab['name']." \n;
 		}
 
 		echo "$TransId=".$TransId."&RequestType= 2&MSISDN=". $MSISDN."&AppId=".$AppId."&USSDString=".$message."&TypeofMessage=0";
